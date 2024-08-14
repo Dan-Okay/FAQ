@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Help Center</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="home-section">
+        <h2>Welcome to Our Help Center</h2>
+        <p>Find answers to common questions, explore articles, and get in touch with our support team.</p>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for help..." onkeyup="searchFunction()">
+            <button type="button" onclick="searchFunction()">Search</button>
+        </div>
+    </section>
+
+    <section id="articles" class="articles-section">
+        <h2>Help Articles</h2>
+        <div id="articleList" class="article-list">
+            <article>
+                <h3>Getting Started</h3>
+                <p>Learn how to start using our services.</p>
+                <a href="#">Read More</a>
+            </article>
+            <article>
+                <h3>Account Management</h3>
+                <p>Manage your account settings and preferences.</p>
+                <a href="#">Read More</a>
+            </article>
+            <article>
+                <h3>Payment and Billing</h3>
+                <p>Find out how to handle payments and billing.</p>
+                <a href="#">Read More</a>
+            </article>
+            <!-- Add more articles here -->
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div id="faqList" class="faq-list">
+            <div class="faq-item">
+                <h3>How do I reset my password?</h3>
+                <p>You can reset your password by following these steps...</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I contact customer support?</h3>
+                <p>Contact our customer support through email or phone...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>If you need further assistance, feel free to reach out.</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function searchFunction() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const articles = document.querySelectorAll('#articleList article');
+            const faqs = document.querySelectorAll('#faqList .faq-item');
+
+            articles.forEach(article => {
+                const text = article.textContent.toLowerCase();
+                article.style.display = text.includes(input) ? '' : 'none';
+            });
+
+            faqs.forEach(faq => {
+                const text = faq.textContent.toLowerCase();
+                faq.style.display = text.includes(input) ? '' : 'none';
+            });
+        }
+        @media (max-width: 768px) {
+    .article-list article {
+        width: calc(50% - 20px); /* 2 per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .article-list article {
+        width: 100%; /* 1 per row */
+    }
+}
+
+    </script>
+</body>
+</html>
